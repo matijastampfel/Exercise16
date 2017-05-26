@@ -4,8 +4,8 @@ import Button from './Button';
 
 describe("Button CSS",()=>{
     it("CSS Class for Button",()=>{
-        let wrap = shallow(<Button/>)
+        let wrap = shallow(<Button/>);
         const btn = "buttonClass";
-        expect(wrap.hasClass(btn)).toBe(true)
+        expect(wrap.hasClass(btn)).toBe(true);
     })
 })
