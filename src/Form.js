@@ -4,8 +4,8 @@ class Form extends Component {
     render() {
         return (
             <div>
-                 <input type="text"/>
-                 <input type="text"/>
+                 <input onChange={this.props.update} type="text"/>
+                 <input onChange={this.props.update} type="text"/>
             </div>
         );
     }
