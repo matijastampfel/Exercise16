@@ -11,21 +11,29 @@ class App extends Component {
       name : ""
     };
     this.clear = this.clear.bind(this);
-    this.update = this.update.bind(this);
+    this.updateEmail = this.updateEmail.bind(this);
+    this.updateName = this.updateName.bind(this);
   }
 
   clear(){
-
+    this.setState({name:"", email:""});
   }
 
-  update(e){
+  updateEmail(e){
+    this.setState({email: e.target.value});
+    
+  }
 
+  updateName(e){
+    
+      this.setState({name: e.target.value});
+    
   }
 
   render() {
     return (
       <div className="App">
-      <Form update={this.update}/>
+      <Form updateName={this.updateName} updateEmail={this.updateEmail} nameState={this.state.name} emailState={this.state.email}/>
        <Button gumb = {this.clear}/>
       </div>
     );

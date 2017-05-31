@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 
 describe("react test", ()=>{
 it('renders without crashing', () => {
@@ -17,26 +17,27 @@ expect(state).toBe("");
 })
 
 it("check update email",()=>{
-  let wraper = shallow(<App/>);
+  let wraper = mount(<App/>);
   let test = "Kurac";
-  wraper.find("Form").simulate("update",{target:{value:test},type:"change"});
+  wraper.find("Form").children("input").first().simulate("change",{target:{value:test},type:"change"});
   let state = wraper.state("email");
   expect(state).toBe(test);
 })
 
 it("check update name",()=>{
-  let wraper = shallow(<App/>);
-  wraper.find("Form").simulate("update");
+  let wraper = mount(<App/>);
+  let test = "Joni";
+  wraper.find("Form").children("input").at(1).simulate("change",{target:{value:test},type:"change"});
   let state1 = wraper.state("name");
-  expect(state1).toBe("");
+  expect(state1).toBe(test);
 })
 
 
 it("check delete",()=>{
-  let wraper = shallow(<App/>);
+  let wraper = mount(<App/>);
  wraper.setState({email : "Magarac", name: "Johan"});
   let test = "Picka";
-  wraper.find("Button").simulate("gumb"); 
+  wraper.find("Button").children("button").simulate("click"); 
   let state = wraper.state("name");
   expect(state).toBe("");
 })

@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const Button = () => {
+class Button extends Component  {
+    render(){
     return (
         <div className="buttonClass">
             <button onClick = {this.props.gumb}>Button</button>
         </div>
     );
+    }
 };
 
 export default Button;
